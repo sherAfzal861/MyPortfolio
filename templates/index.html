@@ -38,7 +38,8 @@
 
     <header class="text-center my-5">
       <h1 data-aos="fade-up" id="main_heading">Welcome to My Portfolio</h1>
-      <p class="lead" data-aos="fade-up" data-aos-delay="200">Web Developer with expertise In Python, PHP and JavaScript</p>
+      <p class="lead" data-aos="fade-up" data-aos-delay="200">Web Developer with expertise In Python, PHP and JavaScript
+      </p>
     </header>
 
     <!-- About Section -->
@@ -97,10 +98,14 @@
           </div>
           <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
             <div class="card">
-              <img src="path/to/work-image-3.jpg" class="card-img-top" alt="Work Image 3">
+              <img src="{{url_for('static' , filename='images/note-keeping.png')}}" class="card-img-top"
+                alt="Work Image 3">
               <div class="card-body">
-                <h5 class="card-title">Project 3</h5>
-                <p class="card-text">Description of Project 3.</p>
+                <h5 class="card-title">note keeping API in Flask</h5>
+                <p class="card-text">An API which keep records of different peoples and also keeps records of notes
+                  related to each of person . all of CURD operations are implemented . User can read, update, delete and
+                  add records and people</p>
+                <a href="https://github.com/sherAfzal861/flask_api.git">view source code</a>
               </div>
             </div>
           </div>
