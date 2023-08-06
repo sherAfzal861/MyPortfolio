@@ -18,39 +18,47 @@
   <div class="container bgimage">
     <!-- Header Section -->
     <nav class="navbar navbar-expand-lg mynavbar">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-  
+
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
+            <a class="nav-link lead h1" href="#about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#work">Work</a>
+            <a class="nav-link lead h1" href="#work">Work</a>
           </li>
           <!-- Add more navbar items as needed -->
         </ul>
       </div>
     </nav>
-  
+
     <header class="text-center my-5">
-      <h1 data-aos="fade-up">Welcome to My Portfolio</h1>
-      <p class="lead" data-aos="fade-up" data-aos-delay="200">I am excited to showcase my work and skills.</p>
+      <h1 data-aos="fade-up" id="main_heading">Welcome to My Portfolio</h1>
+      <p class="lead" data-aos="fade-up" data-aos-delay="200">Web Developer with expertise In Python, PHP and JavaScript</p>
     </header>
 
     <!-- About Section -->
     <section id="about" class="py-5">
       <div class="row">
         <div class="col-md-6" data-aos="fade-right">
-          <img src="{{url_for('static' , filename="images/img.jpg")}}" alt="Your Image" class="img-fluid rounded-circle main-image" width='200' height='200'>
+          <img src="{{url_for('static' , filename='images/img.jpg')}}" alt="Your Image"
+            class="img-fluid rounded-circle main-image" width='200' height='200'>
         </div>
         <div class="col-md-6 my-auto" data-aos="fade-left">
           <h2>About Me</h2>
           <p>
-            Add some information about yourself here. You can talk about your background, skills, experience, and
-            passions.
+            Experienced and versatile web developer with a strong passion for creating visually stunning and
+            user-friendly websites. Proficient in front-end technologies like HTML, CSS, and JavaScript, as well as
+            back-end frameworks like Django and Flask. Skilled in building custom WordPress themes and plugins for
+            seamless content management. Python enthusiast with expertise in developing data-driven applications and
+            automation tools. Diligent problem-solver, committed to delivering high-quality code and exceeding client
+            expectations. Adaptable team player, eager to collaborate on innovative projects and contribute to
+            cutting-edge solutions. Seeking new challenges to leverage my skills and contribute to the dynamic world of
+            web development.
           </p>
         </div>
       </div>
@@ -64,19 +72,26 @@
           <!-- Add your work projects here with appropriate images and descriptions -->
           <div class="col-md-4 mb-4" data-aos="fade-up">
             <div class="card">
-              <img src="path/to/work-image-1.jpg" class="card-img-top" alt="Work Image 1">
+              <img src="{{url_for('static', filename='images/pic3.png')}}" class="card-img-top" alt="Work Image 1">
               <div class="card-body">
-                <h5 class="card-title">Project 1</h5>
-                <p class="card-text">Description of Project 1.</p>
+                <h5 class="card-title">Ecomerce Website</h5>
+                <p class="card-text">a web application built using Django, which serves as an online store for various
+                  products. Users can browse different categories, view product details, add items to their cart, and
+                  proceed to checkout.</p>
+                <a href="http://sherafzalkhan.pythonanywhere.com/">click here to visit</a>
               </div>
             </div>
           </div>
           <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
             <div class="card">
-              <img src="path/to/work-image-2.jpg" class="card-img-top" alt="Work Image 2">
+              <img src="{{url_for('static' , filename='images/semaphore.png')}}" class="card-img-top"
+                alt="Work Image 2">
               <div class="card-body">
-                <h5 class="card-title">Project 2</h5>
-                <p class="card-text">Description of Project 2.</p>
+                <h5 class="card-title">Semaphore implementation</h5>
+                <p class="card-text">Python implementation of a semaphore . It includes a graphical user interface built
+                  with Tkinter that allows users to enter the number of resources and threads, and start the execution.
+                </p>
+                <a href="https://github.com/sherAfzal861/semaphore.git">view source code</a>
               </div>
             </div>
           </div>
@@ -91,12 +106,13 @@
           </div>
         </div>
       </section>
-  
+
     </div>
     <!-- Add more sections as needed -->
 
   </div>
-  
+  {% include 'footer.html' %}
+
 
   <!-- Bootstrap JS via CDN -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

@@ -4,7 +4,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 120%;
     background-image: url("../images/back-ground-image.jpg");
     background-size: cover;
     background-position: center;
@@ -16,23 +16,26 @@
 }
 
 
-.work{
+.work::before{
     content: "";
     position: absolute;
-
-    width: 80%;
-    height: 80%;
+    left: 5px;
+    width: 98vw;
+    height: 100%;
     background-image: url("../images/work.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     /* Optional: Set a fixed background attachment if needed */
+    background-attachment: fixed;
     
+
+    opacity: 0.5;
     z-index: -1;
 
 }
 .work{
-    margin-top: 100px;
+    margin-top: 80px;
 }
 
 .main-image{
@@ -46,6 +49,15 @@
         position: relative;
         left: 50%;
         transform: translateX(-50%);
+    }
+    div.work::before{
+        display: none;
+    }
+    div.work{
+        background-color: aquamarine;
+    }
+    div.bgimage::before{
+        height: 155%;
     }
   }
 
