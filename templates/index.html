@@ -9,128 +9,236 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <!-- AOS CSS via CDN -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
-
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <style>
+    /* Global Styles */
+    body,
+    html {
+      position: fixed;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: rgb(15 23 43);
+      /* Light black background */
+      color: #f8f9fa;
+      /* Light text for contrast */
+    }
+
+    /* main container style */
+    .main-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Ensure the list items stack vertically */
+    .navbar-nav {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      display: block;
+      /* Remove flex to stack items vertically */
+    }
+
+    /* Add a horizontal line to the left of each item */
+    .nav-item {
+      display: block;
+      position: relative;
+      margin-bottom: 20px;
+      margin-left: 100px;
+    }
+
+    /* Create the horizontal line */
+    .nav-item::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -65px;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 2px;
+      background-color: #f8f9fa;
+    }
+
+    /* Style the navigation links */
+    .nav-link {
+      font-size: 24px;
+      color: #f8f9fa;
+      text-decoration: none;
+    }
+
+    .nav-link:hover {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    /* Left Container - Fixed */
+    .header-left {
+      padding: 10px 95px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 40%;
+      /* Adjust as needed */
+      height: 100vh;
+      background-color: rgb(15 23 43);
+      color: #fff;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Right Container - Scrollable */
+    .header-right {
+
+      padding-right: 97px;
+      margin-left: 40%;
+      height: 100vh;
+      overflow-y: scroll;
+      padding: 20px 0px;
+      padding-left: 20px;
+      padding-right: 97px;
+      background-color: rgb(15 23 43);
+    }
+
+    /* Section Titles */
+    h2 {
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    /* Card Styling */
+    .card {
+      background-color: #444;
+      color: #fff;
+    }
+
+    .light-white {
+      color: rgb(211 220 233);
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    p {
+      font-weight: 500;
+      /* Set to semibold */
+      color: rgb(151, 166, 187);
+      font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+  </style>
 </head>
 
 <body>
+  <!-- Left side: Fixed Header -->
+  <div class="main-container">
+    <div class="header-left">
+      <header class="my-5">
+        <h1 data-aos="fade-up" id="main_heading" class="light-white">Sher Afzal Khan</h1>
+        <h4 class="light-white">Python and Web Developer</h4>
+        <p class="" data-aos="fade-up" data-aos-delay="200">Web Developer with expertise in Python, PHP, and
+          JavaScript</p>
+      </header>
 
-  <div class="container bgimage">
-    <!-- Header Section -->
-    <nav class="navbar navbar-expand-lg mynavbar">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <!-- Navbar Section -->
+      <nav class="navbar navbar-expand-lg mynavbar">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link lead h1" href="#about">About</a>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link lead h1 light-white" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link lead h1 light-white" href="#work">Work</a>
+            </li>
+          </ul>
+        </div>
+
+      </nav>
+      <!-- Social Media Icons -->
+      <div class="social-icons my-3" style="position: relative; top: 170px; left: 50px; opacity: .6;">
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <a href="https://github.com/yourusername" target="_blank" class="text-white">
+              <i class="fab fa-github fa-2x"></i>
+            </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link lead h1" href="#work">Work</a>
+          <li class="list-inline-item">
+            <a href="https://www.linkedin.com/in/yourusername" target="_blank" class="text-white">
+              <i class="fab fa-linkedin fa-2x"></i>
+            </a>
           </li>
-          <!-- Add more navbar items as needed -->
+          <li class="list-inline-item">
+            <a href="https://facebook.com/yourusername" target="_blank" class="text-white">
+              <i class="fab fa-facebook fa-2x"></i>
+            </a>
+          </li>
         </ul>
       </div>
-    </nav>
+    </div>
 
-    <header class="text-center my-5">
-      <h1 data-aos="fade-up" id="main_heading">Welcome to My Portfolio</h1>
-      <p class="lead" data-aos="fade-up" data-aos-delay="200">Web Developer with expertise In Python, PHP and JavaScript
-      </p>
-    </header>
-
-    <!-- About Section -->
-    <section id="about" class="py-5">
-      <div class="row">
-        <div class="col-md-6" data-aos="fade-right">
-          <img src="{{url_for('static' , filename='images/img.jpg')}}" alt="Your Image"
-            class="img-fluid rounded-circle main-image" width='200' height='200'>
-        </div>
-        <div class="col-md-6 my-auto" data-aos="fade-left">
-          <h2>About Me</h2>
-          <p>
-            Experienced and versatile web developer with a strong passion for creating visually stunning and
-            user-friendly websites. Proficient in front-end technologies like HTML, CSS, and JavaScript, as well as
-            back-end frameworks like Django and Flask. Skilled in building custom WordPress themes and plugins for
-            seamless content management. Python enthusiast with expertise in developing data-driven applications and
-            automation tools. Diligent problem-solver, committed to delivering high-quality code and exceeding client
-            expectations. Adaptable team player, eager to collaborate on innovative projects and contribute to
-            cutting-edge solutions. Seeking new challenges to leverage my skills and contribute to the dynamic world of
-            web development.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Work Section -->
-    <div class="container work">
-      <section id="work" class="py-5">
-        <h2 class="text-center mb-4" data-aos="fade-up">My Work</h2>
+    <!-- Right side: Scrollable Content -->
+    <div class="header-right text-center">
+      <!-- About Section -->
+      <section id="about" class="py-5">
+        <h2 class="text-center light-white">About Me</h2>
+        <p class="text-center">
+          Experienced and versatile web developer with a strong passion for creating visually stunning and
+          user-friendly websites...
+        </p>
+      </section>
+      <!-- work section -->
+      <section id="work" class="py-5 text-center">
+        <h2 class="text-center mb-4 light-white" data-aos="fade-up">My Work</h2>
         <div class="row">
-          <!-- Add your work projects here with appropriate images and descriptions -->
-          <div class="col-md-4 mb-4" data-aos="fade-up">
+          <div class="col-12 mb-4" data-aos="fade-up">
             <div class="card">
               <img src="{{url_for('static', filename='images/pic3.png')}}" class="card-img-top" alt="Work Image 1">
               <div class="card-body">
-                <h5 class="card-title">Ecomerce Website</h5>
-                <p class="card-text">a web application built using Django, which serves as an online store for various
-                  products. Users can browse different categories, view product details, add items to their cart, and
-                  proceed to checkout.</p>
-                <a href="http://sherafzalkhan.pythonanywhere.com/">click here to visit</a>
+                <h5 class="card-title">Ecommerce Website</h5>
+                <p class="card-text">A web application built using Django...</p>
+                <a href="http://sherafzalkhan.pythonanywhere.com/">Click here to visit</a>
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-12 mb-4 data-aos=" fade-up"">
             <div class="card">
-              <img src="{{url_for('static' , filename='images/semaphore.png')}}" class="card-img-top"
-                alt="Work Image 2">
+              <img src="{{url_for('static', filename='images/pic3.png')}}" class="card-img-top" alt="Work Image 2">
               <div class="card-body">
-                <h5 class="card-title">Semaphore implementation</h5>
-                <p class="card-text">Python implementation of a semaphore . It includes a graphical user interface built
-                  with Tkinter that allows users to enter the number of resources and threads, and start the execution.
-                </p>
-                <a href="https://github.com/sherAfzal861/semaphore.git">view source code</a>
+                <h5 class="card-title">Personal Blog</h5>
+                <p class="card-text">A blogging platform created with Flask...</p>
+                <a href="http://example.com/">Click here to visit</a>
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-12 mb-4 data-aos=" fade-up"">
             <div class="card">
-              <img src="{{url_for('static' , filename='images/note-keeping.png')}}" class="card-img-top"
-                alt="Work Image 3">
+              <img src="{{url_for('static', filename='images/pic3.png')}}" class="card-img-top" alt="Work Image 3">
               <div class="card-body">
-                <h5 class="card-title">note keeping API in Flask</h5>
-                <p class="card-text">An API which keep records of different peoples and also keeps records of notes
-                  related to each of person . all of CURD operations are implemented . User can read, update, delete and
-                  add records and people</p>
-                <a href="https://github.com/sherAfzal861/flask_api.git">view source code</a>
+                <h5 class="card-title">Portfolio Website</h5>
+                <p class="card-text">A showcase of my projects and skills...</p>
+                <a href="http://example.com/">Click here to visit</a>
               </div>
             </div>
           </div>
+
+          <!-- Add more work samples as needed -->
         </div>
       </section>
-
     </div>
-    <!-- Add more sections as needed -->
-
   </div>
-  {% include 'footer.html' %}
-
-
   <!-- Bootstrap JS via CDN -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
   <!-- AOS JS via CDN -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-
-  <!-- Initialize AOS -->
   <script>
     AOS.init({
-      once: true // Set to true if you want animations to happen only once
+      once: true, // Animate only once
     });
   </script>
 </body>
