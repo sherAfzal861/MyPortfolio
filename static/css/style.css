@@ -67,7 +67,7 @@ body {
 /* Add styles for the nav-item to include a horizontal line indicator */
 .navbar-nav .nav-item {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 /* Add the hover and focus effect to the nav link */

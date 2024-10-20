@@ -4,8 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Portfolio</title>
+  <meta name="description"
+    content="Sher Afzal Khan's portfolio - Python and Web Developer. Full stack developer with expertise in Django, Flask, and Flutter.">
+  <link rel="icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}" type="image/x-icon">
+  <title>Sher Afzal Khan Fullstack and python Developer</title>
   <!-- Bootstrap CSS via CDN -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <!-- AOS CSS via CDN -->
@@ -15,8 +17,8 @@
 
   <style>
     /* Global Styles */
-    
-    body{
+
+    body {
       height: 100%;
       margin: 0;
       padding: 0;
@@ -96,36 +98,120 @@
       color: rgb(151, 166, 187);
       font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     }
-    .social-media-icons{
-      position: relative; top: 170px; left: 50px; opacity: .6;
+
+    .social-media-icons {
+      position: relative;
+      top: 170px;
+      left: 50px;
+      opacity: .6;
     }
+
     @media (max-width: 1024px) {
-      html{
+      html {
         overflow-y: auto;
       }
-    .main-container {
-      flex-direction: column;
-    }
-  
-    .header-left {
-      position: relative;
-      width: 100%;
-      height: 50vh;
-      padding: 20px;
-    }
-    .social-media-icons{
-      top: 50px;
-    }
-  
-    .header-right {
-      margin-left: 0;
-      padding-left: 20px;
-      padding-right: 20px;
-      height: auto;
-      overflow-y: auto;
-    }
-  }
 
+      .main-container {
+        flex-direction: column;
+      }
+
+      .header-left {
+        position: relative;
+        width: 100%;
+        height: 50vh;
+        padding: 20px;
+      }
+
+      .social-media-icons {
+        top: 50px;
+      }
+
+      .header-right {
+        margin-left: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+        height: auto;
+        overflow-y: auto;
+      }
+
+
+
+
+      /* Custom Menu Button Styles */
+      .navbar-toggler {
+        border: none;
+        background: none;
+        position: fixed;
+        top: 10px;
+        left: 20px;
+        z-index: 1000;
+        cursor: pointer;
+        /* Change cursor to pointer on hover */
+      }
+
+      .line {
+        display: block;
+        /* Each line is a block element */
+        width: 30px;
+        /* Width of the lines */
+        height: 4px;
+        /* Height of the lines */
+        background-color: #fff;
+        /* Color of the lines */
+        margin: 6px 0;
+        /* Space between lines */
+        transition: background-color 0.3s;
+        /* Smooth transition for color change */
+      }
+
+      .navbar-nav {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+      }
+
+      .nav-item .nav-link {
+        color: #fff;
+        font-size: 20px;
+        margin-right: 15px;
+      }
+
+      /* Responsive Styles for Screen Sizes less than 1024px */
+      @media (max-width: 991px) {
+
+        .navbar-nav .nav-item .nav-link::before {
+          content: '';
+          display: none;
+        }
+
+        .navbar-toggler {
+          display: block;
+        }
+
+        .collapse {
+          background-color: gray;
+          padding: 20px;
+          width: 50%;
+          text-align: center;
+          position: fixed;
+          left: 0px;
+          top: 0px;
+          z-index: 10;
+        }
+
+        .navbar-nav .nav-item {
+          display: block;
+          margin-bottom: 15px;
+        }
+
+        .navbar-nav .nav-item .nav-link {
+          color: lightblue;
+
+        }
+      }
+
+    }
+    
   </style>
 </head>
 
@@ -144,23 +230,26 @@
       <nav class="navbar navbar-expand-lg mynavbar">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
           aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
         </button>
 
-        <div class="collapse navbar-collapse " id="navbarCollapse">
+        <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav">
-            <li class="nav-item ">
-
+            <li class="nav-item">
               <a class="nav-link lead h1 light-white" href="#about">About</a>
             </li>
             <li class="nav-item">
-
               <a class="nav-link lead h1 light-white" href="#work">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link lead h1 light-white" href="/blogs">Blogs</a>
             </li>
           </ul>
         </div>
-
       </nav>
+
       <!-- Social Media Icons -->
       <div class="social-icons social-media-icons my-3">
         <ul class="list-inline">
@@ -283,9 +372,9 @@
         </div>
       </section>
     </div>
-    
+
   </div>
-  
+
   <!-- Bootstrap JS via CDN -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -309,6 +398,15 @@
       glowCircle.style.top = `${e.clientY}px`;
       glowCircle.style.left = `${e.clientX}px`;
     });
+    // Close navbar on click outside
+    $(document).click(function (event) {
+      var clickover = $(event.target);
+      var _opened = $(".navbar-collapse").hasClass("show");
+      if (_opened === true && !clickover.hasClass("navbar-toggler")) {
+        $(".navbar-toggler").click();
+      }
+    });
+
   </script>
 </body>
 
