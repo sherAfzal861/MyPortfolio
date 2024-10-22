@@ -4,6 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Dynamic Title for SEO -->
+    <title>{{ blog.title }} | My Blog</title>
+
+    <!-- Meta Tags -->
+    <meta name="description" content="{{ blog.content[:150] }}...">
+    <meta name="keywords" content="{{ blog.title }}, blog, my website">
+    <meta name="author" content="Your Name">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ url_for('blog_detail', blog_title=blog.title, _external=True) }}">
+
     <link rel="icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}" type="image/x-icon">
     <title>{{ blog.title }}</title>
 

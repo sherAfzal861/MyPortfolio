@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask_sqlalchemy import SQLAlchemy
-from config import app, Blog, db, User
+from config import app, Blog, db, User, ext
 from flask_bcrypt import Bcrypt
 import marko
 
@@ -8,15 +8,25 @@ import marko
 def index():
     return render_template('index.html')
 
+
+# Add this dynamic rule to include blog URLs in the sitemap
+@ext.register_generator
+def blog_sitemap():
+    # Get all blogs from the database
+    blogs = Blog.query.all()
+    for blog in blogs:
+        # Generate a URL for each blog using the blog's title
+        yield 'blog_detail', {'blog_title': blog.title}
+
 @app.route('/blogs')
 def blog_list():
     blogs = Blog.query.order_by(Blog.date_posted.desc()).all()
     is_admin = session.get('is_admin', False)  # Check if admin is logged in
     return render_template('blog_list.html', blogs=blogs, is_admin=is_admin)
 
-@app.route('/blog/<int:blog_id>')
-def blog_detail(blog_id):
-    blog = Blog.query.get_or_404(blog_id)
+@app.route('/blog/<string:blog_title>')
+def blog_detail(blog_title):
+    blog = Blog.query.filter_by(title=blog_title).first_or_404()
     content = marko.convert(blog.content)
     return render_template('blog_detail.html', blog=blog, content=content)
 
